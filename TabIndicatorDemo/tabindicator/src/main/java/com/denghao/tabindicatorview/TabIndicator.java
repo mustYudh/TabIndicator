@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -86,7 +85,7 @@ public class TabIndicator extends View {
     return this;
   }
 
-  private Paint getTextPaint(@ColorInt int color, float with) {
+  private Paint getTextPaint( int color, float with) {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setAntiAlias(true);
     paint.setColor(color);

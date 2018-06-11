@@ -15,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
     List<String> data = new ArrayList<>();
     data.add("您的好友");
     data.add("优秀店主");
-    contentView1.setPadding(5).setData( R.color.colorAccent, R.color.colorPrimary,data);
+    contentView1.setPadding(5)
+        .setData(R.color.colorAccent, R.color.colorPrimary, data)
+        .setSelect(1)
+        .setTabSelectListener(new TabIndicator.onTabSelectListener() {
+          @Override public void onSelect(int position) {
+
+          }
+        });
   }
 }

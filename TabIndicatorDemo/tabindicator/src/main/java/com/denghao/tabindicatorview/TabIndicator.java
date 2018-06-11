@@ -85,6 +85,10 @@ public class TabIndicator extends View {
     return this;
   }
 
+  public int getCurrentSelectPosition() {
+    return position;
+  }
+
   private Paint getTextPaint( int color, float with) {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setAntiAlias(true);
@@ -249,9 +253,9 @@ public class TabIndicator extends View {
             if (beforeSelect != position) {
               beforeSelect = position;
               setAnimators(position);
-            }
-            if (mTabSelectListener != null) {
-              mTabSelectListener.onSelect(i, startX, endX);
+              if (mTabSelectListener != null) {
+                mTabSelectListener.onSelect(i);
+              }
             }
             break;
           }
@@ -345,10 +349,11 @@ public class TabIndicator extends View {
   }
 
   public interface onTabSelectListener {
-    void onSelect(int position, int start, int end);
+    void onSelect(int position);
   }
 
-  public void setTabSelectListener(onTabSelectListener tabSelectListener) {
+  public TabIndicator setTabSelectListener(onTabSelectListener tabSelectListener) {
     mTabSelectListener = tabSelectListener;
+    return this;
   }
 }
